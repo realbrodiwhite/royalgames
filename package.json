@@ -1,0 +1,50 @@
+{
+  "name": "royal-games-social-casino",
+  "version": "0.2.9",
+  "author": "realbrodiwhite <brodiwhite951@gmail.com>",
+  "description": "This is the Royal Games Social Casino Web App",
+  "main": "client/build/index.html",
+  "type": "module",
+  "engines": {
+    "node": "^18.0.0"
+  },
+  "homepage": "https://royalgamesserver.onrender.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/realbrodiwhite/royalgamesserver.git"
+  },
+  "scripts": {
+    "start": "npm run client:start && npm run server:start",
+    "build": "npm run client:build && npm run server:start",
+    "eject": "react-scripts eject",
+    "dev": "nodemon server.js",
+    "client:start": "npm start --prefix client",
+    "client:build": "npm run build --prefix client",
+    "client:dev": "npm run dev --prefix client",
+    "client:test": "npm run react-scripts test --prefix client",
+    "server:start": "npm run start --prefix server",
+    "server:build": "npm run build --prefix server",
+    "server:dev": "npm run dev --prefix server",
+    "server:test": "npm run test --prefix server"
+  },
+  "keywords": [
+    "royal",
+    "casino",
+    "games",
+    "social",
+    "719"
+  ],
+  "license": "Proprietary",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
