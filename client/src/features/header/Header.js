@@ -2,7 +2,7 @@ import { faCog, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Header.scss";
 import { useSelector } from "react-redux";
-import { React } from "react";
+import React from "react";
 import { useEffect, useContext } from "react";
 import { SocketContext } from "../../context/socket";
 import store from "../../store";

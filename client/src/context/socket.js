@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import { io } from "socket.io-client";
 import store from "../store";
 import lobbySlice from "../lobbySlice";
