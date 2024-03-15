@@ -12,7 +12,7 @@ const GameList = (props) => {
     <div className="GameList">
       <div className={`list ${!loggedIn ? 'd-none' : ''}`}>
         <div className="game" style={{position: 'relative'}}>
-          <img className="logo" src={egyptianTreasuresLogo} />
+          <img className="logo" src={egyptianTreasuresLogo} alt="Egyptian Treasures Slot Game Logo on Royal Games"/>
           
           <span>Egyptian Treasures</span>
 
@@ -22,7 +22,7 @@ const GameList = (props) => {
         </div>
 
         <div className="game">
-          <img className="logo" src={rockClimberLogo} />
+        <img className="logo" src={rockClimberLogo} alt="Rock Climber Slot Game Logo on Royal Games" />
           
           <span>Rock Climber</span>
 
