@@ -2,9 +2,7 @@ import React from "react";
 import { io } from "socket.io-client";
 import store from "../store";
 import lobbySlice from "../lobbySlice";
-
-export const socket = io.connect('https://royalgamesserver.onrender.com');
-// export const socket = io.connect("http://localhost:10000");
+export const socket = io.connect("http://localhost:10000");
 export const SocketContext = React.createContext();
 
 socket.on("connect", () => {
@@ -39,4 +37,12 @@ socket.on("connect", () => {
 socket.on("disconnect", () => {
   store.dispatch(lobbySlice.actions.updateLoginState("logged-out"));
   store.dispatch(lobbySlice.actions.updateBalance(0));
+});
+
+socket.on("connect_error", (error) => {
+  console.error("Socket connection error:", error);
+});
+
+socket.on("error", (error) => {
+  console.error("Socket error:", error);
 });
