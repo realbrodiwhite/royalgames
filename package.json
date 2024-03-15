@@ -8,10 +8,10 @@
   "engines": {
     "node": "^18.0.0"
   },
-  "homepage": "https://royalgamesserver.onrender.com",
+  "homepage": "https://royalgames.onrender.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/realbrodiwhite/royalgamesserver.git"
+    "url": "https://github.com/realbrodiwhite/royalgames.git"
   },
   "scripts": {
     "start": "npm run client:start && npm run server:start",
