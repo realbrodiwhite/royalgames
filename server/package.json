@@ -22,7 +22,7 @@
     "nodemon": "3.1.0",
     "webpack": "^5.0.3",
     "webpack-cli": "^4.2.0",
-    "webpack-node-externals": "^3.0.0",
-    "webpack-dev-server": "^5.0.3"
-    }
+    "webpack-dev-server": "^5.0.3",
+    "webpack-node-externals": "^3.0.0"
   }
+}
