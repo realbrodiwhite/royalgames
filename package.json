@@ -1,6 +1,6 @@
 {
   "name": "royal-games-social-casino",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "author": "realbrodiwhite <brodiwhite951@gmail.com>",
   "description": "This is the Royal Games Social Casino Web App",
   "main": "client/build/index.html",
