@@ -6,7 +6,7 @@
   "main": "client/build/index.html",
   "type": "module",
   "dependencies": {
-    "node":"18.12.0"
+    "node":"18.17.0"
   },
   "engines": {
     "node": "18.12.0"
