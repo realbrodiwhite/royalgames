@@ -1,7 +1,7 @@
 {
   "name": "royalgames-server",
   "version": "1.2.9",
-  "description": "This is the server fir the Royal Games Social Casino Web App",
+  "description": "This is the server for the Royal Games Social Casino Web App",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon index.js",
@@ -17,7 +17,7 @@
     "socket.io": "^4.6.0",
     "sqlite3": "^5.1.4",
     "uuid": "^9.0.0",
-    "node": "18.0.0"
+    "node": "18.17.0"
   },
   "devDependencies": {
     "nodemon": "3.1.0",
@@ -27,6 +27,6 @@
     "webpack-node-externals": "^3.0.0"
   },
   "engines": {
-    "node": "18.12.0"
+    "node": "18.17.0"
   }
 }
