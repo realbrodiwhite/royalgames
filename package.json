@@ -6,10 +6,10 @@
   "main": "client/build/index.html",
   "type": "module",
   "dependencies": {
-    "node":"18.12.0"
+    "node":"18.19.1"
   },
   "engines": {
-    "node": "18.12.0"
+    "node": "18.19.1"
   },
   "homepage": "https://royalgames.onrender.com",
   "repository": {
