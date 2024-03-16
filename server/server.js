@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 class Server {
   constructor() {
@@ -13,14 +14,13 @@ class Server {
       },
     });
 
-    app.use(express.static(__dirname + '/public'));
+    // Serve static files from the React app
+    app.use(express.static(path.join(__dirname, '../client/build')));
 
-    app.get('/', (req, res) => {
-      res.sendFile(__dirname + '/public/index.html');
-    });
-
-    app.use((req, res) => {
-      res.sendFile(__dirname + '/public/index.html');
+    // The "catch-all" handler: for any request that doesn't
+    // match one above, send back React's index.html file.
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '../client/build/index.html'));
     });
 
     io.on('connection', (socket) => {

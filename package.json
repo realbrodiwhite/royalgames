@@ -17,8 +17,8 @@
     "url": "https://github.com/realbrodiwhite/royalgames.git"
   },
   "scripts": {
-    "start": "npm run client:start && npm run server:start",
-    "build": "npm run client:build && npm run server:start",
+    "start": "cd client && npm start & cd server && npm start",
+    "build": "cd client && npm run build & cd server && npm start",
     "eject": "react-scripts eject",
     "dev": "nodemon server.js",
     "install": "npm run client:install && npm run server:install",
