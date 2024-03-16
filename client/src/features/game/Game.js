@@ -19,7 +19,7 @@ const Game = (props) => {
     let game;
 
     axios.get(`../gamescripts/${params.gameId}.js`).then((response) => {
-      game = (new Function(`
+      game = new Function(`
         const gameId = arguments[0];
         const Game = arguments[1];
         const Reel = arguments[2];
@@ -30,10 +30,21 @@ const Game = (props) => {
         const goToLobby = arguments[7];
 
         ${response.data}
-      `))(params.gameId, SlotGame, Reel, initControls, socket, PIXI, gsap, () => { navigate('/'); });
-      
-      const gameCanvas = elRef.current.querySelector('canvas');
-      
+      `)(
+        params.gameId,
+        SlotGame,
+        Reel,
+        initControls,
+        socket,
+        PIXI,
+        gsap,
+        () => {
+          navigate("/");
+        }
+      );
+
+      const gameCanvas = elRef.current.querySelector("canvas");
+
       if (gameCanvas) {
         gameCanvas.remove();
       }
@@ -44,7 +55,7 @@ const Game = (props) => {
     return () => {
       game.destroy();
     };
-  }, []);
+  }, [navigate, params.gameId, socket]);
 
   return (
     <div
