@@ -1,0 +1,15 @@
+services:
+- type: web
+  name: royal-games-social-casino
+  env: node
+  buildCommand: npm run install && npm run client:build && npm run server:build
+  startCommand: npm run start
+ envVars:
+  - key: NODE_ENV
+    value: production
+  - key: SOCKETIO_PORT
+    value: 3001
+  - key: DEPENDENCIES
+    value: node:14.17.0
+  - key: ENGINES
+    value: node:14.17.0
