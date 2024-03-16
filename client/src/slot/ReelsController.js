@@ -48,7 +48,7 @@ class ReelsController {
     game.ticker.add((delta) => {
       for (let i = 0; i < this.reels.length; i++) {
         const reel = this.reels[i];
-        const active = reel.rolling == true || reel.stopping !== false;
+        const active = reel.rolling === true || reel.stopping !== false;
   
         if (active && game.betResponse) {
           const reelStopTime = this.spinTime + (i * this.spinTimeBetweenReels);
@@ -69,7 +69,9 @@ class ReelsController {
   }
 
   get reelsActive() {
-    return this.reels.some((reel) => reel.rolling == true || reel.stopping !== false);
+    return this.reels.some(
+      (reel) => reel.rolling === true || reel.stopping !== false
+    );
   }
 
   onStart(fn) {

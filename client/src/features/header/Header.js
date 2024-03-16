@@ -21,7 +21,7 @@ const Header = React.memo(() => {
     socket.on("balance", (balance) => {
       store.dispatch(lobbySlice.actions.updateBalance(balance));
     });
-  }, []);
+  }, [socket]);
 
   return (
     <header className="Header">

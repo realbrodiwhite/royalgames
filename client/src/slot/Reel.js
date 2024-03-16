@@ -102,7 +102,7 @@ Reel.prototype.render = function() {
       this.values.splice(-1, 1);
     }
 
-    if (this.stopping == this.positions + 1) {
+    if (this.stopping === this.positions + 1) {
       this.rolling = false;
       this.stopping++;
       var o = {
@@ -114,13 +114,13 @@ Reel.prototype.render = function() {
         offset: 0,
         round: 1,
         duration: this.bounceDuration,
-        easing: 'easeOutQuint',
-        update: function() {
+        easing: "easeOutQuint",
+        update: function () {
           _this.offset = o.offset;
         },
-        complete: function() {
+        complete: function () {
           _this.stopping = false;
-          
+
           for (let i = 0; i < _this.stopFns.length; i++) {
             const fn = _this.stopFns[i];
 
