@@ -7,9 +7,9 @@ services:
  envVars:
   - key: NODE_ENV
     value: production
-  - key: SOCKETIO_PORT
-    value: 3001
-  - key: DEPENDENCIES
-    value: node:14.17.0
-  - key: ENGINES
-    value: node:14.17.0
+  - key: PORT
+    value: 10000
+  - key: HOST
+    value: royalgames.onrender.com
+  - key: SOCKET_URL
+    value: https://royalgames.onrender.com
