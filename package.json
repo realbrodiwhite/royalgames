@@ -9,7 +9,7 @@
     "node":"18.12.0"
   },
   "engines": {
-    "node": "18.12.0"
+    "node": "20.11.1"
   },
   "homepage": "https://royalgames.onrender.com",
   "repository": {
