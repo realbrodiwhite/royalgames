@@ -27,7 +27,7 @@
     "redux": "^4.2.1",
     "sass": "^1.58.1",
     "socket.io-client": "^4.6.0",
-    "node": "18.12.0"
+    "node": "21.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
