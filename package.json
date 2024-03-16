@@ -5,6 +5,9 @@
   "description": "This is the Royal Games Social Casino Web App",
   "main": "client/build/index.html",
   "type": "module",
+  "dependencies": {
+    "node":"18.0.0"
+  },
   "engines": {
     "node": "^18.0.0"
   },
