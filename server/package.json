@@ -2,8 +2,9 @@
   "name": "royalgames-server",
   "version": "1.2.9",
   "description": "This is the server for the Royal Games Social Casino Web App",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
+    "build": "webpack --mode production",
     "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

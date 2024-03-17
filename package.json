@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "author": "realbrodiwhite <brodiwhite951@gmail.com>",
   "description": "This is the Royal Games Social Casino Web App",
-  "main": "client/build/index.html",
+  "main": "index.js",
   "type": "module",
   "dependencies": {
     "node": "18.17.0",
