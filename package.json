@@ -6,7 +6,8 @@
   "main": "client/build/index.html",
   "type": "module",
   "dependencies": {
-    "node":"18.17.0"
+    "node": "18.17.0",
+    "serve": "^14.2.1"
   },
   "engines": {
     "node": "18.17.0"
