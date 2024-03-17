@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "cd client && npm install && npm start && cd ../server && npm install && npm start",
-    "build": "cd client && npm install && npm run build && cd ../server && npm install && npm start",
+    "build": "cd client && npm install && npm run build && cd ../server && npm install ",
     "postinstall": "cd server && npm rebuild sqlite3",
     "eject": "react-scripts eject",
     "dev": "nodemon server.js",
