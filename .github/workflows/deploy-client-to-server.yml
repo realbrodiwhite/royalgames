@@ -1,0 +1,47 @@
+name: Deploy Client to Server
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'royalgames-client/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Install dependencies and build the client
+      - name: Install Client Dependencies
+        working-directory: ./royalgames-client
+        run: npm install
+
+      - name: Build Client
+        working-directory: ./royalgames-client
+        run: npm run build
+
+      # Step 4: Copy client build files to server public folder
+      - name: Deploy Client Build to Server Public Folder
+        run: |
+          rm -rf ./royalgames-server/public/*
+          cp -r ./royalgames-client/build/* ./royalgames-server/public/
+
+      # Step 5: Commit and push changes
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add ./royalgames-server/public/*
+          git commit -m "Deploy client build to server public folder"
+          git push
