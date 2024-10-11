@@ -1,8 +1,8 @@
 {
     "name": "royalgames",
-    "version": "0.0.5",
+    "version": "1.0.0",
     "private": true,
-    "description": "A comprehensive online casino gaming platform featuring a React client component served by an Express server component deployed to https://royalgames-server-woh4.onrender.com and using a render.com database making use of Redux for slice mangement.",
+    "description": "A comprehensive online casino gaming platform featuring a React client component served by an Express server component deployed to https://royalgames-server-woh4.onrender.com and using a render.com database making use of Redux for slice management.",
     "author": {
       "name": "Brodi White",
       "url": "https://github.com/realbrodiwhite"
@@ -32,7 +32,7 @@
       "start": "npm run client:build && npm run server:start",
       "dev": "npm run client:build && npm run server:dev",
       "test": "npm run client:test && npm run server:test",
-      "install": "npm install --prefix royalgames/royalgames-client && npm install --prefix ../royalgames/royalgames-server"
+      "install": "npm install --prefix royalgames/royalgames-client && npm install --prefix royalgames/royalgames-server"
     },
     "dependencies": {
       "express": "^4.17.1",
