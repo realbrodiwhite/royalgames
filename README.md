@@ -1,1 +1,1 @@
-# royalgames
+# royalgames client and server

@@ -1,6 +1,6 @@
 {
-  "name": "sloticon-server",
-  "version": "1.0.0",
+  "name": "royalgames-server",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
