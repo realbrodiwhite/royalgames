@@ -31,7 +31,8 @@
       "server:test": "npm test --prefix royalgames/royalgames-server",
       "start": "npm run client:build && npm run server:start",
       "dev": "npm run client:build && npm run server:dev",
-      "test": "npm run client:test && npm run server:test"
+      "test": "npm run client:test && npm run server:test",
+      "install": "npm install --prefix royalgames/royalgames-client && npm install --prefix royalgames/royalgames-server"
     },
     "dependencies": {
       "express": "^4.17.1",
