@@ -1,9 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import lobbySlice from "./lobbySlice";
+// store.js - Setting up the Redux store
+
+import { configureStore } from '@reduxjs/toolkit';
+import lobbyReducer from './lobbySlice';
 
 const store = configureStore({
   reducer: {
-    lobby: lobbySlice.reducer,
+    lobby: lobbyReducer,
   },
 });
 

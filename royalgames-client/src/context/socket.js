@@ -1,42 +1,25 @@
-import io from "socket.io-client";
-import React from 'react';
-import store from '../store';
-import lobbySlice from "../lobbySlice";
+// socket.js - Client-side Socket.IO integration
 
-export const socket = io.connect('https://royalgamescasino.onrender.com');
-// export const socket = io.connect('http://localhost:3001');
-export const SocketContext = React.createContext();
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3001', {
+  withCredentials: true,
+});
 
 socket.on('connect', () => {
+  console.log('Connected to server');
+});
 
-  socket.emit('login', {
-    key: localStorage.getItem('key'),
-  });
-  const waitForLoginTimeout = setTimeout(() => {
-    // propably invalid key in localStorage
-    localStorage.removeItem('key');
+socket.on('newUser', (message) => {
+  console.log(message);
+});
 
-    socket.emit('login', {
-      key: localStorage.getItem('key'),
-    });
-  }, 5000);
-
-  socket.on('login', (data) => {
-    clearTimeout(waitForLoginTimeout);
-
-    if (data.status === 'logged-in') {
-      localStorage.setItem('key', data.key);
-
-      store.dispatch(lobbySlice.actions.updateLoginState({
-        status: data.status,
-        username: data.username,
-      }));
-      store.dispatch(lobbySlice.actions.updateBalance(data.balance));
-    }
-  });
+socket.on('userLeft', (message) => {
+  console.log(message);
 });
 
 socket.on('disconnect', () => {
-  store.dispatch(lobbySlice.actions.updateLoginState('logged-out'));
-  store.dispatch(lobbySlice.actions.updateBalance(0));
+  console.log('Disconnected from server');
 });
+
+export default socket;
