@@ -35,7 +35,7 @@ const Header = (props) => {
         <span className="name">Royal Games</span>
       </div>
 
-      <div className={`menu ${!loggedIn ? "d-none" : ""}`}>
+      <div className="menu">
         <div className="account">
           <button className="btn-toggle-account-menu">
             <FontAwesomeIcon icon={faUserCircle} size="2x"></FontAwesomeIcon>
@@ -48,8 +48,8 @@ const Header = (props) => {
         </button>
       </div>
 
-      <div className={`balance ${!loggedIn ? "d-none" : ""}`}>
-        <span className="label">Gaming Credits</span>
+      <div className="balance">
+        <span className="label">Credits</span>
         <span className="value">
           {balance.toLocaleString("en-US", {
             minimumFractionDigits: 2,
