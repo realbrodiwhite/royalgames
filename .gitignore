@@ -3205,7 +3205,6 @@ node_modules/chokidar/node_modules/glob-parent/index.js
 node_modules/chokidar/node_modules/glob-parent/LICENSE
 node_modules/chokidar/node_modules/glob-parent/package.json
 node_modules/chokidar/node_modules/glob-parent/README.md
-node_modules/.package-lock.json
 node_modules/.bin/mkdirp
 node_modules/.bin/which
 node_modules/@babel/code-frame/tsconfig.json
