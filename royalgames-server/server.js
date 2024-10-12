@@ -2,24 +2,6 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({
-  origin: ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/],
-  optionsSuccessStatus: 200
-}));
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://royalgamescasino.onrender.com');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  next();
-});
-
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://royalgamescasino.onrender.com');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.sendStatus(200);
-});
 
 class Server {
   constructor() {
