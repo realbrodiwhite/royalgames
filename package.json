@@ -31,17 +31,16 @@
       "server:test": "npm test --prefix royalgames/royalgames-server",
       "start": "npm run client:build && npm run server:start",
       "dev": "npm run client:build && npm run server:dev",
-      "test": "npm run client:test && npm run server:test",
-      "install": "npm install --prefix royalgames/royalgames-client && npm install --prefix royalgames/royalgames-server"
+      "test": "npm run client:test && npm run server:test"
     },
     "dependencies": {
-      "express": "^4.17.1",
-      "react": "^17.0.2",
-      "react-dom": "^17.0.2"
+      "express": "^4.18.2",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
     },
     "devDependencies": {
-      "nodemon": "^2.0.7",
-      "eslint": "^7.32.0"
+      "nodemon": "*",
+      "eslint": "*"
     },
     "engines": {
       "node": ">=14.0.0"

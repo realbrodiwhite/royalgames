@@ -9,7 +9,7 @@ class Server {
     const SocketIo = require("socket.io");
     const io = new SocketIo.Server(server, {
       cors: {
-        origin: "https://royalgames-client.replit.app",
+        origin: "https://royalgamescasino.onrender.com",
       },
     });
 
