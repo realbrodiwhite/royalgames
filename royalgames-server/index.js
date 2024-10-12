@@ -1,6 +1,13 @@
 const express = require('express');
+const cors = require('cors');  // Import CORS
 const path = require('path');
 const app = express();
+
+// Centralized CORS settings
+app.use(cors({
+  origin: ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/],  // Your allowed origins
+  optionsSuccessStatus: 200
+}));
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
