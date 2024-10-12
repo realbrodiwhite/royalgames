@@ -3,7 +3,7 @@ import React from 'react';
 import store from '../store';
 import lobbySlice from "../lobbySlice";
 
-export const socket = io.connect('https://royalgames-server.replit.app');
+export const socket = io.connect('https://royalgamescasino.onrender.com');
 // export const socket = io.connect('http://localhost:3001');
 export const SocketContext = React.createContext();
 
