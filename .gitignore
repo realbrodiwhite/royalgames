@@ -48325,3 +48325,4 @@ royalgames-client/node_modules/core-js-pure/web/structured-clone.js
 royalgames-client/node_modules/core-js-pure/web/timers.js
 royalgames-client/node_modules/core-js-pure/web/url-search-params.js
 royalgames-client/node_modules/core-js-pure/web/url.js
+.gitignore
