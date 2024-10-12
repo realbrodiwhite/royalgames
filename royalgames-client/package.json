@@ -31,7 +31,6 @@
     "redux": "^5.0.1",
     "sass": "^1.79.5",
     "socket.io-client": "^4.8.0",
-    "svgo": "^3.3.2",
     "web-vitals": "^4.2.3"
   },
   "scripts": {

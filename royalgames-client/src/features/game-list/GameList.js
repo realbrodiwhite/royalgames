@@ -26,17 +26,23 @@ const GameList = () => {
 
   return (
     <div className="GameList">
-      <div className="list">
+      <ul className="list">
         {games.map((game) => (
-          <div className="game" key={game.name} style={{ position: 'relative' }}>
+          <li className="game" key={game.name} style={{ position: 'relative' }}>
             <img className="logo" src={game.logo} alt={game.alt} />
             <span>{game.name}</span>
+            {loggedIn ? (
             <Link to={game.path} className="btn-play" aria-label={game.ariaLabel}>
               Play
             </Link>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+          ) : (
+            <button className="btn-login" aria-label="Login to play">
+              Login to Play
+              </button>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+);};
+export default GameList;
