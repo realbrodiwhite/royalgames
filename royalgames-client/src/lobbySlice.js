@@ -32,4 +32,4 @@ const lobbySlice = createSlice({
 });
 
 export const { joinLobby, leaveLobby, addUser, removeUser } = lobbySlice.actions;
-export default lobbySlice.reducer;
+export default lobbySlice.reducer;   
