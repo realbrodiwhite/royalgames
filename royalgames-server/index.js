@@ -5,7 +5,7 @@ const app = express();
 
 // Centralized CORS settings
 app.use(cors({
-  origin: ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/],  // Your allowed origins
+  origin: ['https://royalgamescasino.onrender.com',  /\.blackbx\.ai$/],  // Your allowed origins
   optionsSuccessStatus: 200
 }));
 
