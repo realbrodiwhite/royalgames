@@ -3,12 +3,23 @@ const cors = require('cors');  // Import CORS
 const path = require('path');
 const app = express();
 
+require('dotenv').config();
+
+const corsOrigins = process.env.CORS_ORIGINS.split(',').map(origin => {
+  if (origin.startsWith('/')) {
+    return new RegExp(origin);
+  }
+  return origin;
+});
+
 // Centralized CORS settings
 const allowedOrigins = process.env.CORS_ORIGINS 
   ? process.env.CORS_ORIGINS.split(',')
   : ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/, /\.onrender\.com$/];
 
 app.use(cors({
+  origin: corsOrigins,  // Your allowed origins
+  optionsSuccessStatus: 200
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.some(allowedOrigin => 
       (typeof allowedOrigin === 'string' && origin === allowedOrigin) ||

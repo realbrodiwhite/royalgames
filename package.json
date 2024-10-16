@@ -4,49 +4,49 @@
     "private": true,
     "description": "A comprehensive online casino gaming platform featuring a React client component served by an Express server component deployed to https://royalgames-server-woh4.onrender.com and using a render.com database making use of Redux for slice management.",
     "author": {
-      "name": "Brodi White",
-      "url": "https://github.com/realbrodiwhite"
+        "name": "Brodi White",
+        "url": "https://github.com/realbrodiwhite"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/realbrodiwhite/royalgames"
+        "type": "git",
+        "url": "https://github.com/realbrodiwhite/royalgames"
     },
     "license": "UNLICENSED",
     "keywords": [
-      "casino",
-      "gaming",
-      "online-games",
-      "nodejs",
-      "react",
-      "monorepo",
-      "pixijs",
-      "javascript"
+        "casino",
+        "gaming",
+        "online-games",
+        "nodejs",
+        "react",
+        "monorepo",
+        "pixijs",
+        "javascript"
     ],
     "scripts": {
-      "client:start": "npm start --prefix royalgames/royalgames-client",
-      "client:build": "npm run build --prefix royalgames/royalgames-client && ./scripts/copy-client-build.sh",
-      "client:test": "npm test --prefix royalgames/royalgames-client",
-      "server:start": "npm start --prefix royalgames/royalgames-server",
-      "server:dev": "npm run dev --prefix royalgames/royalgames-server",
-      "server:test": "npm test --prefix royalgames/royalgames-server",
-      "start": "npm run client:build && npm run server:start",
-      "dev": "npm run client:build && npm run server:dev",
-      "test": "npm run client:test && npm run server:test"
+        "client:start": "npm start --prefix royalgames/royalgames-client",
+        "client:build": "npm run build --prefix royalgames/royalgames-client && ./scripts/copy-client-build.sh",
+        "client:test": "npm test --prefix royalgames/royalgames-client",
+        "server:start": "npm start --prefix royalgames/royalgames-server",
+        "server:dev": "npm run dev --prefix royalgames/royalgames-server",
+        "server:test": "npm test --prefix royalgames/royalgames-server",
+        "start": "npm run client:build && npm run server:start",
+        "dev": "npm run client:build && npm run server:dev",
+        "test": "npm run client:test && npm run server:test"
     },
     "dependencies": {
-      "express": "^4.21.1",
-      "react": "^18.3.1",
-      "react-dom": "^18.3.1"
+        "express": "^4.21.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "devDependencies": {
-      "nodemon": "*",
-      "eslint": "^5.1.6"
+        "eslint": "^9.12.0",
+        "nodemon": "*"
     },
     "engines": {
-      "node": ">=14.0.0"
+        "node": ">=14.0.0"
     },
     "homepage": "https://royalgames-server-woh4.onrender.com",
     "bugs": {
-      "url": "https://github.com/realbrodiwhite/royalgames/issues"
+        "url": "https://github.com/realbrodiwhite/royalgames/issues"
     }
-  }
+}
