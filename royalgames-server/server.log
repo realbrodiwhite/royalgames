@@ -2,5 +2,17 @@
 > royalgames-server@0.2.0 start
 > node index.js
 
-Connected to the database.
-App listening on port 3001
+/home/user/royalgames/royalgames-server/index.js:8
+const corsOrigins = process.env.CORS_ORIGINS.split(',').map(origin => {
+                                             ^
+
+TypeError: Cannot read properties of undefined (reading 'split')
+    at Object.<anonymous> (/home/user/royalgames/royalgames-server/index.js:8:46)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+    at node:internal/main/run_main_module:28:49
+
+Node.js v20.17.0

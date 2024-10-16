@@ -18,8 +18,7 @@ const allowedOrigins = process.env.CORS_ORIGINS
   : ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/, /\.onrender\.com$/];
 
 app.use(cors({
-  origin: corsOrigins,  // Your allowed origins
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.some(allowedOrigin => 
       (typeof allowedOrigin === 'string' && origin === allowedOrigin) ||
