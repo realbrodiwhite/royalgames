@@ -4,9 +4,22 @@ const path = require('path');
 const app = express();
 
 // Centralized CORS settings
+const allowedOrigins = process.env.CORS_ORIGINS 
+  ? process.env.CORS_ORIGINS.split(',')
+  : ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/, /\.onrender\.com$/];
+
 app.use(cors({
-  origin: ['https://royalgamescasino.onrender.com',  /\.blackbx\.ai$/],  // Your allowed origins
-  optionsSuccessStatus: 200
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.some(allowedOrigin => 
+      (typeof allowedOrigin === 'string' && origin === allowedOrigin) ||
+      (allowedOrigin instanceof RegExp && allowedOrigin.test(origin))
+    )) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
 // Serve static files from the public directory

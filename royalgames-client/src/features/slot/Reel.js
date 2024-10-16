@@ -87,7 +87,7 @@ Reel.prototype.render = function() {
   if (this.rolling) {
     this.offset += this.symbols[0].height * this.speed;
 
-    if (this.offset >= this.symbols[0].height) {
+if (this.offset === this.symbols[0].height) {
       this.offset = 0;
       if (!isNaN(parseInt(this.stopping))) {
         this.values.unshift(this.stopValues.pop());

@@ -1,7 +1,7 @@
 // lobbySlice.js - Redux slice for lobby state management
 
 import { createSlice } from '@reduxjs/toolkit';
-import socket from './socket';
+import { socket } from './context/socket';
 
 const initialState = {
   lobbyId: null,

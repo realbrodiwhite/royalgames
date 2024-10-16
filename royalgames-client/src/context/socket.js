@@ -1,5 +1,6 @@
 // socket.js - Client-side Socket.IO integration
 
+import React from 'react';
 import io from 'socket.io-client';
 
 const socket = io('http://localhost:3001', {
@@ -22,4 +23,8 @@ socket.on('disconnect', () => {
   console.log('Disconnected from server');
 });
 
-export default socket;
+const SocketContext = React.createContext();
+
+// ... (rest of the file)
+
+export { socket, SocketContext };

@@ -6,6 +6,9 @@
     "name": "Brodi White",
     "url": "https://github.com/realbrodiwhite"
   },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.18.6"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",

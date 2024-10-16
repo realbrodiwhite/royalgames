@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react';
 import './Game.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { SocketContext } from '../../context/socket';
+import { socket, SocketContext } from '../../context/socket';
 import * as PIXI from 'pixi.js';
 import Reel from '../slot/Reel';
 import SlotGame from '../slot/SlotGame';
@@ -19,7 +19,9 @@ const Game = (props) => {
     let game;
 
     axios.get(`../gamescripts/${params.gameId}.js`).then((response) => {
-      game = (new Function(`
+/* The Function constructor is used here to dynamically load and execute the game script.
+   Ensure that the script is trusted and safe to execute. */
+game = (new Function(`
         const gameId = arguments[0];
         const Game = arguments[1];
         const Reel = arguments[2];
@@ -44,7 +46,7 @@ const Game = (props) => {
     return () => {
       game.destroy();
     };
-  }, []);
+}, [navigate, params.gameId, socket]);
 
   return (
     <div

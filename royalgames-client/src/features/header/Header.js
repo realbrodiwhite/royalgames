@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
 import { useSelector } from 'react-redux';
 import { useEffect, useContext } from 'react';
-import { SocketContext } from '../../context/socket';
+import { socket, SocketContext } from '../../context/socket';
 import store from '../../store';
 import lobbySlice from '../../lobbySlice';
 
 const Header = (props) => {
-  const loggedIn = useSelector((state) => state.lobby.loggedIn);
+
   const username = useSelector((state) => state.lobby.username);
   const balance = useSelector((state) => state.lobby.balance);
 

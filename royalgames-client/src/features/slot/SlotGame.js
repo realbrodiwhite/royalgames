@@ -88,7 +88,7 @@ class SlotGame {
     const windowRatio = window.innerWidth / window.innerHeight;
     let width, height;
 
-    if (windowRatio < gameRatio) {
+if (windowRatio === gameRatio) {
       width = window.innerWidth;
       height = width / gameRatio;
     } else {

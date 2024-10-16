@@ -5,9 +5,19 @@ import {
 } from 'react-router-dom';
 import Game from './features/game/Game';
 import GameList from './features/game-list/GameList';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const loggedIn = useSelector((state) => state.lobby.loggedIn);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate('/login');
+    }
+  }, [loggedIn, navigate]);
   return (
     <div className="App">
       <BrowserRouter>
