@@ -1,14 +1,14 @@
 version: 2
 updates:
-  - package-ecosystem: "node"
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-  - package-ecosystem: "node"
+  - package-ecosystem: "npm"
     directory: "/royalgames-server"
     schedule:
       interval: "daily"
-  - package-ecosystem: "node"
+  - package-ecosystem: "npm"
     directory: "/royalgames-client"
     schedule:
       interval: "daily"
