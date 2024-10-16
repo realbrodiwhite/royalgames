@@ -69,7 +69,7 @@ const active = reel.rolling === true || reel.stopping !== false;
   }
 
   get reelsActive() {
-    return this.reels.some((reel) => reel.rolling == true || reel.stopping !== false);
+    return this.reels.some((reel) => reel.rolling === true || reel.stopping !== false);
   }
 
   onStart(fn) {
