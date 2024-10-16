@@ -5,16 +5,13 @@ const app = express();
 
 require('dotenv').config();
 
-const corsOrigins = process.env.CORS_ORIGINS.split(',').map(origin => {
-  if (origin.startsWith('/')) {
-    return new RegExp(origin);
-  }
-  return origin;
-});
-
-// Centralized CORS settings
 const allowedOrigins = process.env.CORS_ORIGINS 
-  ? process.env.CORS_ORIGINS.split(',')
+  ? process.env.CORS_ORIGINS.split(',').map(origin => {
+      if (origin.startsWith('/')) {
+        return new RegExp(origin);
+      }
+      return origin;
+    })
   : ['https://royalgamescasino.onrender.com', /\.blackbx\.ai$/, /\.onrender\.com$/];
 
 app.use(cors({
