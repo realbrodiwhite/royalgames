@@ -1,0 +1,7 @@
+
+> royalgames-server@0.2.0 start
+> node index.js
+
+Connected to the database.
+App listening on port 3001
+Killed
