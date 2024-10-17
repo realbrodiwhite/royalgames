@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');  // Import CORS
 const path = require('path');
+const _ = require('lodash');
 const app = express();
 
 require('dotenv').config();
@@ -8,7 +9,7 @@ require('dotenv').config();
 const allowedOrigins = process.env.CORS_ORIGINS 
   ? process.env.CORS_ORIGINS.split(',').map(origin => {
       if (origin.startsWith('/')) {
-        return new RegExp(origin);
+        return new RegExp(_.escapeRegExp(origin));
       }
       return origin;
     })
