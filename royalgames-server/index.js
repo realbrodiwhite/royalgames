@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');  // Import CORS
 const path = require('path');
 const _ = require('lodash');
+const RateLimit = require('express-rate-limit');
 const app = express();
 
 require('dotenv').config();
@@ -29,6 +30,15 @@ app.use(cors({
   },
   credentials: true
 }));
+
+// Set up rate limiter: maximum of 100 requests per 15 minutes
+const limiter = RateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // max 100 requests per windowMs
+});
+
+// Apply rate limiter to all requests
+app.use(limiter);
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
