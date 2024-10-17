@@ -1,30 +1,58 @@
 // socket.js - Client-side Socket.IO integration
 
-import React from 'react';
+import React, { useEffect, useState, createContext, useContext } from 'react';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3001', {
-  withCredentials: true,
-});
+// Create a context for the socket
+const socket = createContext();
 
-socket.on('connect', () => {
-  console.log('Connected to server');
-});
+// Custom hook to use the socket
+export const useSocket = () => {
+  return useContext(socket);
+};
 
-socket.on('newUser', (message) => {
-  console.log(message);
-});
+// Socket provider component
+export const SocketProvider = ({ children }) => {
+  const [socket, setSocket] = useState(null);
 
-socket.on('userLeft', (message) => {
-  console.log(message);
-});
+  useEffect(() => {
+    const socketInstance = io(process.env.REACT_APP_SERVER, {
+      withCredentials: true,
+    });
 
-socket.on('disconnect', () => {
-  console.log('Disconnected from server');
-});
+    // Set the socket instance in state
+    setSocket(socketInstance);
 
-const SocketContext = React.createContext();
+    // Handle socket events
+    socketInstance.on('connect', () => {
+      console.log('Connected to server');
+    });
 
-// ... (rest of the file)
+    socketInstance.on('newUser ', (message) => {
+      console.log(message);
+    });
 
-export { socket, SocketContext };
+    socketInstance.on('userLeft', (message) => {
+      console.log(message);
+    });
+
+    socketInstance.on('disconnect', () => {
+      console.log('Disconnected from server');
+    });
+
+    // Cleanup on unmount
+    return () => {
+      socketInstance.disconnect();
+      console.log('Socket disconnected');
+    };
+  }, []);
+
+  return (
+    <socket.Provider value={socket}>
+      {children}
+    </socket.Provider>
+  );
+};
+
+// Export the context for use in components
+export { socket };
