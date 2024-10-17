@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define directories
-CLIENT_BUILD_DIR="royalgames/royalgames-client/build"
-SERVER_PUBLIC_DIR="royalgames/royalgames-server/public"
+CLIENT_BUILD_DIR="/home/user/royalgames/royalgames-client/build"
+SERVER_PUBLIC_DIR="/home/user/royalgames/royalgames-server/public"
 
 # Check if client build directory exists
 if [ ! -d "$CLIENT_BUILD_DIR" ]; then
