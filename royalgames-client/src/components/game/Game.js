@@ -4,9 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { socket, SocketContext } from '../../context/socket';
 import * as PIXI from 'pixi.js';
-import Reel from '../slot/Reel';
-import SlotGame from '../slot/SlotGame';
-import initControls from '../slot/initControls';
+import Reel from '../../slot/Reel';
+import SlotGame from '../../slot/SlotGame';
+import initControls from '../../slot/initControls';
 import gsap from 'gsap';
 
 const Game = (props) => {

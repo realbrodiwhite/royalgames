@@ -4,11 +4,11 @@ const symbolsCount = 12;
 
 const game = new Game({
   id: 'egyptian-treasures',
-  width: 1280,
-  height: 960,
+  width: '%100',
+  height: '%100',
   reelsCount: 5,
   reelPositions: 3,
-  symbolsCount,
+  symbolsCount: 11,
   hasBlurredSymbols: true,
   symbolMargin: 0,
   maskPaddingX: 0,

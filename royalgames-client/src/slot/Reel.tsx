@@ -102,7 +102,7 @@ if (this.offset === this.symbols[0].height) {
       this.values.splice(-1, 1);
     }
 
-    if (this.stopping == this.positions + 1) {
+    if (this.stopping === this.positions + 1) {
       this.rolling = false;
       this.stopping++;
       var o = {

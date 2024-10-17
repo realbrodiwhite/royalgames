@@ -1,10 +1,10 @@
 import './App.scss';
-import Header from './features/header/Header';
+import Header from './components/header/Header';
 import {
   BrowserRouter, Route, Routes
 } from 'react-router-dom';
-import Game from './features/game/Game';
-import GameList from './features/game-list/GameList';
+import Game from './components/game/Game';
+import GameList from './components/game-list/GameList';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

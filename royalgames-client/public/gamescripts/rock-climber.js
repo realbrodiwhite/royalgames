@@ -4,11 +4,11 @@ const symbolsCount = 8;
 
 const game = new Game({
   id: 'rock-climber',
-  width: 1280,
-  height: 800,
+  width: '%100',
+  height: '%100',
   reelsCount: 5,
   reelPositions: 3,
-  symbolsCount,
+  symbolsCount: 8,
   hasBlurredSymbols: true,
   symbolMargin: 20,
   maskPaddingX: 13,
