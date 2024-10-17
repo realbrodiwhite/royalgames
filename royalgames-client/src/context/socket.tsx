@@ -1,124 +1,76 @@
-import React, { useEffect, useState, createContext, useContext } from 'react';
-import type { FC, ReactNode } from 'react';
+// src/context/socket.tsx
+
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+  ReactNode,
+} from 'react';
 import io, { Socket } from 'socket.io-client';
 
-interface ISocketContext {
+interface SocketContextProps {
   socket: Socket | null;
-  error: string | null;
 }
 
-const SocketContext = createContext<ISocketContext>({ socket: null, error: null });
-
-export const useSocket = () => {
-  return useContext(SocketContext);
-};
+export const SocketContext = createContext<SocketContextProps>({
+  socket: null,
+});
 
 interface SocketProviderProps {
   children: ReactNode;
 }
 
-export const SocketProvider: FC<SocketProviderProps> = ({ children }) => {
+export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
   const [socket, setSocket] = useState<Socket | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [retryCount, setRetryCount] = useState<number>(0);
 
-  const connectToSocket = (url: string) => {
-    try {
-      const socketInstance: Socket = io(url, {
-        withCredentials: true,
-      });
-
-      setSocket(socketInstance);
-
-      socketInstance.on('connect', () => {
-        console.log('Connected to server');
-      });
-
-      socketInstance.on('newUser  ', (message) => {
-        console.log(message);
-      });
-
-      socketInstance.on('userLeft', (message) => {
-        console.log(message);
-      });
-
-      socketInstance.on('disconnect', () => {
-        console.log('Disconnected from server');
-        retryConnect();
-      });
-
-      socketInstance.on('error', (error) => {
-        handleSocketError(error);
-      });
-
-      return () => {
-        socketInstance.disconnect();
-        setSocket(null);
-        console.log('Socket disconnected');
-      };
-    } catch (error) {
-      handleSocketError(error);
-    }
-  };
-
-  const handleSocketError = (error: Error) => {
-    setError(error.message);
-    console.error('Socket error:', error);
-
-    setRetryCount((r) => r + 1);
-
-    if (retryCount < 3) {
-      // Retry the connection after 1 second
-      setTimeout(retryConnect, 1000);
-    } else {
-      // Display an error message after 3 retries
-      setError('Failed to connect to the server. Please try again later.');
-    }
-  };
-
-  const retryConnect = () => {
-    if (!process.env.REACT_APP_SERVER) {
-      setError('Server URL is not set. Please configure the environment variable.');
-      return;
-    }
-
-    connectToSocket(process.env.REACT_APP_SERVER);
-  };
-
+  // Initialize the socket connection
   useEffect(() => {
-    retryConnect();
-  }, [retryCount]);
+    const newSocket = io('http://localhost:3000');
 
-  if (error) {
-    return (
-      <ErrorDisplay error={error} />
-    );
-  }
+    setSocket(newSocket);
+
+    return () => {
+      newSocket.disconnect();
+    };
+  }, []);
+
+  // Memoized function to handle reconnection attempts
+  const retryConnect = useCallback((): void => {
+    if (socket && !socket.connected) {
+      socket.connect();
+    }
+  }, [socket]);
+
+  // Memoized event handlers
+  const handleConnect = useCallback((): void => {
+    console.log('Socket connected');
+    // Additional logic on connect
+  }, []);
+
+  const handleDisconnect = useCallback((): void => {
+    console.log('Socket disconnected');
+    // Attempt to reconnect
+    retryConnect();
+  }, [retryConnect]);
+
+  // Set up event listeners
+  useEffect(() => {
+    if (socket) {
+      socket.on('connect', handleConnect);
+      socket.on('disconnect', handleDisconnect);
+
+      // Clean up event listeners on unmount or when socket changes
+      return () => {
+        socket.off('connect', handleConnect);
+        socket.off('disconnect', handleDisconnect);
+      };
+    }
+  }, [socket, handleConnect, handleDisconnect]);
 
   return (
-    <SocketContext.Provider value={{ socket, error }}>
+    <SocketContext.Provider value={{ socket }}>
       {children}
     </SocketContext.Provider>
-  );
-};
-
-interface ErrorDisplayProps {
-  error: string;
-}
-
-const ErrorDisplay: FC<ErrorDisplayProps> = ({ error }) => {
-  const handleRetry = () => {
-    retryConnect();
-  };
-
-  return (
-    <div>
-      <h2>Error</h2>
-      <p>{error}</p>
-      <p>
-        Please try again later or contact support if the issue persists.
-        <button onClick={handleRetry}>Retry</button>
-      </p>
-    </div>
   );
 };

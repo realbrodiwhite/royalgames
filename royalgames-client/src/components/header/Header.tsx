@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
 import { useSelector } from 'react-redux';
 import { useEffect, useContext } from 'react';
-import { socket, SocketContext } from '../../context/socket';
+import { SocketContext } from '../../context/socket';
 import store from '../../store';
 import lobbySlice from '../../lobbySlice';
+import React from 'react';
 
 const Header = (props) => {
 

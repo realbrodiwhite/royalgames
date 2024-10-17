@@ -3,6 +3,7 @@ import './GameList.scss';
 import rockClimberLogo from '../../assets/img/rock-climber-logo.png';
 import egyptianTreasuresLogo from '../../assets/img/egyptian-treasures-logo.png';
 import { useSelector } from 'react-redux';
+import React from 'react';
 
 const GameList = () => {
   const loggedIn = useSelector((state) => state.lobby.loggedIn);
