@@ -1,10 +1,10 @@
 import './App.scss';
-import Header from './components/header/Header';
+import Header from '../../royalgames-client/src/components/header/Header';
 import {
   BrowserRouter, Route, Routes
 } from 'react-router-dom';
-import Game from './components/game/Game';
-import GameList from './components/game-list/GameList';
+import Game from '../../royalgames-client/src/components/game/Game';
+import GameList from '../../royalgames-client/src/components/game-list/GameList';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
