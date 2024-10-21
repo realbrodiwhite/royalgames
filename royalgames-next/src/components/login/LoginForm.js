@@ -1,17 +1,16 @@
 
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signup } from '../../lobbySlice';
+import { login } from '../../../../royalgames-client/src/lobbySlice';
 
-const SignupForm = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signup({ username, password, email }));
+    dispatch(login({ username, password }));
   };
 
   return (
@@ -32,17 +31,9 @@ const SignupForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit">Login</button>
     </form>
   );
 };
 
-export default SignupForm;
+export default LoginForm;

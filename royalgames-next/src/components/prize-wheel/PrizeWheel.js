@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SocketContext } from '../../context/socket';
-import lobbySlice from '../../lobbySlice';
+import lobbySlice from '../../../../royalgames-client/src/lobbySlice';
 
 const PrizeWheel = () => {
   const [cooldown, setCooldown] = useState(0);
