@@ -1,47 +1,31 @@
 const express = require('express');
-const cors = require('cors');
+const next = require('next');
+const http = require('http');
+const socketIo = require('socket.io');
 
-const app = express();
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-class Server {
-  constructor() {
-    const port = process.env.PORT || 3001;
-     const http = require('http');
-    const server = http.createServer(app);
-    const SocketIo = require("socket.io");
-    const io = new SocketIo.Server(server, {
-      cors: {
-        origin: "https://royalgamescasino.onrender.com",
-      },
+app.prepare().then(() => {
+  const server = express();
+  const httpServer = http.createServer(server);
+  const io = socketIo(httpServer);
+
+  io.on('connection', (socket) => {
+    console.log('New client connected');
+    socket.on('disconnect', () => {
+      console.log('Client disconnected');
     });
+  });
 
-    app.use(express.static(__dirname + '/public'));
+  server.all('*', (req, res) => {
+    return handle(req, res);
+  });
 
-    app.get('/', (req, res) => {
-      res.sendFile(__dirname + '/public/index.html');
-    });
-
-    app.use((req, res) => {
-      res.sendFile(__dirname + '/public/index.html');
-    });
-
-    io.on('connection', (socket) => {
-      console.log('a user connected');
-    });
-
-    this.app = app;
-    this.server = server;
-    this.io = io;
-    this.port = port;
-  }
-
-  start() {
-    this.server.listen(this.port, () => {
-      console.log(`App listening on port ${this.port}`)
-    });
-
-    return this.io;
-  }
-}
-
-module.exports = Server;
+  const PORT = process.env.PORT || 3000;
+  httpServer.listen(PORT, (err) => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${PORT}`);
+  });
+});
