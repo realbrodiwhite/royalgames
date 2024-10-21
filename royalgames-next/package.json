@@ -12,7 +12,8 @@
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
-    "socket.io-client": "^4.8.0"
+    "socket.io-client": "^4.8.0",
+    "autoprefixer": "*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
