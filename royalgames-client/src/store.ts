@@ -1,5 +1,3 @@
-// store.js - Setting up the Redux store
-
 import { configureStore } from '@reduxjs/toolkit';
 import lobbyReducer from './lobbySlice';
 
@@ -8,5 +6,8 @@ const store = configureStore({
     lobby: lobbyReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
