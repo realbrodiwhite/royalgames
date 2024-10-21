@@ -38,7 +38,10 @@
         "express": "^4.21.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
-        "redux": "^5.0.1"
+        "redux": "^5.0.1",
+        "next": "^14.2.15",
+        "next-auth": "*",
+        "sass": "*"
     },
     "devDependencies": {
         "eslint": "^9.12.0",
