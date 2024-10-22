@@ -12,7 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "@types/axios": "^0.14.0",
-    "@types/pixi.js": "^4.8.9",
+    "@types/pixi.js": "^5.0.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-table": "^7.7.20",
     "axios": "^1.7.7",
