@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import ReelsController from './ReelsController';
+import ReelsController from './reelsController';
 import gsap from 'gsap';
 
 class SlotGame {

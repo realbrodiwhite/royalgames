@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import lobbyReducer from './lobbySlice';
+import adminReducer from "./adminSlice";
 
 const store = configureStore({
   reducer: {
     lobby: lobbyReducer,
+    admin: adminReducer,
   },
 });
 

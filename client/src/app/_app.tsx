@@ -1,16 +1,22 @@
-import './App.scss';
-import Header from '../../royalgames-client/src/components/header/Header';
+import Header from '../components/header/header';
 import {
   BrowserRouter, Route, Routes
 } from 'react-router-dom';
-import Game from '../../royalgames-client/src/components/game/Game';
-import GameList from '../../royalgames-client/src/components/game-list/GameList';
+import Game from '../components/game/Game';
+import GameList from '../components/game-list/GameList';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+// Add type for Redux state
+interface RootState {
+  lobby: {
+    loggedIn: boolean;
+  };
+}
+
 function App() {
-  const loggedIn = useSelector((state) => state.lobby.loggedIn);
+  const loggedIn = useSelector((state: RootState) => state.lobby.loggedIn);
   const navigate = useNavigate();
 
   useEffect(() => {

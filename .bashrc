@@ -1,0 +1,13 @@
+export PATH=/opendevin/plugins/agent_skills:$PATH
+export PYTHONPATH=/opendevin/plugins/agent_skills:$PYTHONPATH
+export SHOW_DIFF_AFTER_EDIT=true
+export PATH=$PATH:/opendevin/plugins/jupyter
+export PATH=$PATH:/user/.local/bin
+export OPENDEVIN_PYTHON_INTERPRETER=/usr/bin/python3
+export JUPYTER_GATEWAY_PID=520
+export JUPYTER_GATEWAY_KERNEL_ID=default
+export JUPYTER_EXEC_SERVER_PORT=30000
+export JUPYTER_EXEC_SERVER_PID=526
+export JUPYTER_BASH_EXEC_SERVER_PORT=30001
+export JUPYTER_EXEC_BASH_SERVER_PID=532
+export GITHUB_TOKEN=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

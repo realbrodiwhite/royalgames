@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../../../royalgames-client/src/lobbySlice';
+import { login } from '../../store/lobbySlice';
 
-const LoginForm = () => {
+const loginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -36,4 +36,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default loginForm;
