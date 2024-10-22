@@ -4,16 +4,26 @@ import React, {
   useEffect,
   useCallback,
   ReactNode,
+  useContext
 } from 'react';
-import io, { Socket } from 'socket.io-client';
+import { Socket } from 'socket.io-client';
+import io from 'socket.io-client';
 
-interface SocketContextProps {
+interface SocketContextType {
   socket: Socket | null;
 }
 
-export const SocketContext = createContext<SocketContextProps>({
-  socket: null,
-});
+// Create context with a default value
+const SocketContext = createContext<SocketContextType | undefined>(undefined);
+
+// Custom hook for using the socket context
+export const useSocket = () => {
+  const context = useContext(SocketContext);
+  if (context === undefined) {
+    throw new Error('useSocket must be used within a SocketProvider');
+  }
+  return context;
+};
 
 interface SocketProviderProps {
   children: ReactNode;
@@ -23,24 +33,36 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3000');
+    // Use production URL or fallback to environment PORT
+    const SOCKET_URL = process.env.NODE_ENV === 'production' 
+      ? 'https://royalgamescasino.onrender.com'
+      : `http://localhost:${process.env.PORT || 3000}`;
+
+    const newSocket = io(SOCKET_URL, {
+      transports: ['websocket'],
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      reconnectionAttempts: 5
+    });
+
     setSocket(newSocket);
+
     return () => {
       newSocket.disconnect();
     };
   }, []);
 
-  const retryConnect = useCallback((): void => {
+  const retryConnect = useCallback(() => {
     if (socket && !socket.connected) {
       socket.connect();
     }
   }, [socket]);
 
-  const handleConnect = useCallback((): void => {
+  const handleConnect = useCallback(() => {
     console.log('Socket connected');
   }, []);
 
-  const handleDisconnect = useCallback((): void => {
+  const handleDisconnect = useCallback(() => {
     console.log('Socket disconnected');
     retryConnect();
   }, [retryConnect]);
@@ -63,3 +85,5 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
     </SocketContext.Provider>
   );
 };
+
+export { SocketContext };

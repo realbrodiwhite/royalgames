@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SocketContext } from '../../context/socket';
-import lobbySlice from '../../../../royalgames-client/src/lobbySlice';
+import lobbySlice from './../royalgames-client/src/lobbySlice';
 
-const PrizeWheel = () => {
+const prizeWheel = () => {
   const [cooldown, setCooldown] = useState(0);
   const dispatch = useDispatch();
   const socket = useContext(SocketContext);
@@ -40,4 +40,4 @@ const PrizeWheel = () => {
   );
 };
 
-export default PrizeWheel;
+export default prizeWheel;

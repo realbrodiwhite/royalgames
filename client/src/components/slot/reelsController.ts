@@ -1,4 +1,4 @@
-import Reel from './Reel';
+import Reel from './reel';
 
 class ReelsController {
   onStartFns = [];
