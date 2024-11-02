@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .game-container {
+    @apply w-full flex-1 flex justify-center items-center bg-black;
+  }
+};

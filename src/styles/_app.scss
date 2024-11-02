@@ -1,0 +1,50 @@
+// src/App.scss
+
+/**
+ * Importing variables from variables.scss file
+ */
+ @import './variables.scss';
+
+ /**
+  * Styles for the #root element
+  */
+ #root {
+   /**
+    * Setting the height of the #root element to 100%
+    */
+   height: 100%;
+ }
+ 
+ /**
+  * Styles for the .App element
+  */
+ .App {
+   /**
+    * Setting the position of the .App element to relative
+    */
+   position: relative;
+   /**
+    * Setting the width of the .App element to 100%
+    */
+   width: 100%;
+   /**
+    * Setting the height of the .App element to 100%
+    */
+   height: 100%;
+   /**
+    * Setting the display property of the .App element to flex
+    */
+   display: flex;
+   /**
+    * Setting the flex-direction property of the .App element to column
+    */
+   flex-direction: column;
+   /**
+    * Setting the background color of the .App element to the value of $background-color variable
+    */
+   background-color: $background-color;
+   /**
+    * Setting the text color of the .App element to the value of $text-color variable
+    */
+   color: $text-color;
+ }
